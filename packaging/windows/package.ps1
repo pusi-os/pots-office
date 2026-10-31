@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Build, sign and package ArtCraft Launcher for Windows.
+  Build, sign and package Pots Office for Windows.
 
 .DESCRIPTION
   Produces, in $env:DIST (default: dist/release):
@@ -29,7 +29,7 @@ $Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 
 # ---- app-specific values ----------------------------------------------------------------------
 $Pkg = 'artcraft-launcher'          # cargo package and binary
-$AppName = 'ArtCraft Launcher'      # display name
+$AppName = 'Pots Office'      # display name
 
 function Invoke-Native([string] $What, [scriptblock] $Block) {
   Write-Output "==> $What"
@@ -109,7 +109,7 @@ function New-InstallerArt([string] $BannerOut, [string] $DialogOut) {
   $accent = [System.Drawing.ColorTranslator]::FromHtml('#2d81ff')
   $muted = [System.Drawing.Color]::FromArgb(153, 242, 241, 238)
   $line = [System.Drawing.Color]::FromArgb(38, 242, 241, 238)
-  # The Craft App Suite, in the launcher's order (crates/core/src/catalog.rs).
+  # The Pots Office Suite, in the launcher's order (crates/core/src/catalog.rs).
   $apps = 'photocraft', 'vectorcraft', 'filmcraft', 'lightcraft', 'pdfcraft', 'effectcraft',
     'designcraft', 'wordcraft', 'deckcraft', 'gridcraft', 'cadcraft', 'soundcraft', 'figcraft'
   $mark = [System.Drawing.Image]::FromFile((Join-Path $Root 'assets\app-icon\hicolor\256x256\apps\ai.storyteller.artcraft-launcher.png'))

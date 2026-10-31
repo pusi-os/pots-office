@@ -1,4 +1,4 @@
-//! The Craft App Suite: the thirteen apps the launcher knows about.
+//! The Pots Office Suite: the thirteen apps the launcher knows about.
 //!
 //! The list is data so a later version can fetch it from an API; [`SUITE`] is the built-in copy.
 //!
@@ -94,7 +94,7 @@ const fn app(
     CraftApp { id, name, tagline, group, color, ink_light, ink_dark, repo, former_ids: &[], former_names: &[] }
 }
 
-/// The Craft App Suite, in display order: the seven classic apps, then the six new ones.
+/// The Pots Office Suite, in display order: the seven classic apps, then the six new ones.
 pub const SUITE: [CraftApp; 13] = [
     app(
         "photocraft",
@@ -213,7 +213,7 @@ pub const WEBSITE_URL: &str = "https://getartcraft.com";
 pub const GITHUB_OWNER: &str = "pusi-os";
 /// ArtCraft on GitHub: every Craft App's source.
 pub const GITHUB_URL: &str = "https://github.com/pusi-os/pots-office";
-/// ArtCraft's social accounts: (service, URL). Shown as small icons, less prominent than Discord.
+/// ArtCraft's social accounts: (service, URL). Shown as small icons, less prominent than Telegram.
 pub const SOCIAL: [(&str, &str); 5] = [
     ("X", "https://x.com/get_artcraft"),
     ("Instagram", "https://www.instagram.com/officialartcraftstudios"),
@@ -222,8 +222,8 @@ pub const SOCIAL: [(&str, &str); 5] = [
     ("TikTok", "https://www.tiktok.com/@artcraft.studios"),
 ];
 
-/// The ArtCraft community on Discord.
-pub const DISCORD_URL: &str = "https://discord.gg/artcraft";
+/// The ArtCraft community on Telegram.
+pub const DISCORD_URL: &str = "https://t.me/nerosekta";
 
 /// Pots Office itself, described like a Craft App so it can update itself with the same
 /// machinery (asset names `artcraft-launcher-<ver>-…`, bundle id `ai.storyteller.artcraft-launcher`,
@@ -231,7 +231,7 @@ pub const DISCORD_URL: &str = "https://discord.gg/artcraft";
 pub const LAUNCHER: CraftApp = app(
     "artcraft-launcher",
     "Pots Office",
-    "Installs and updates the Craft App Suite",
+    "Installs and updates the Pots Office Suite",
     AppGroup::New,
     [[0x0b, 0x0b, 0x0c], [0x0b, 0x0b, 0x0c], [0xf2, 0xf1, 0xee]],
     "pusi-os/pots-office",

@@ -447,9 +447,9 @@ mod tests {
         "release_info": {{
           "apps": {{
             "photocraft": {{
-              "name": "PhotoCraft", "repo": "pusi-os/pots-office",
+              "name": "Pots Photos", "repo": "pusi-os/pots-office",
               "latest_release": {{
-                "tag": "v0.6.0", "version": "0.6.0", "name": "PhotoCraft v0.6.0",
+                "tag": "v0.6.0", "version": "0.6.0", "name": "Pots Photos v0.6.0",
                 "published_at": "2026-10-09T10:00:00Z",
                 "html_url": "https://github.com/pusi-os/pots-office/releases/tag/v0.6.0",
                 "prerelease": false, "notes_markdown": "Notes",
@@ -462,9 +462,9 @@ mod tests {
               }},
               "app_last_fetched": "2026-10-09T13:00:00Z"
             }},
-            "soundcraft": {{ "name": "SoundCraft", "repo": "pusi-os/pots-office", "latest_release": null,
+            "soundcraft": {{ "name": "Pots Sound", "repo": "pusi-os/pots-office", "latest_release": null,
                              "app_last_fetched": "2026-10-09T13:00:00Z" }},
-            "filmcraft": {{ "name": "FilmCraft", "repo": "pusi-os/pots-office", "latest_release": null, "app_last_fetched": null }},
+            "filmcraft": {{ "name": "Pots Films", "repo": "pusi-os/pots-office", "latest_release": null, "app_last_fetched": null }},
             "vectorcraft": {{ "repo": "pusi-os/pots-office", "app_last_fetched": "2026-10-01T00:00:00Z",
                               "latest_release": {{ "tag": "v0.7.0" }} }},
             "brandnewcraft": {{ "repo": "pusi-os/pots-office", "app_last_fetched": "2026-10-09T13:00:00Z" }}
@@ -531,8 +531,8 @@ mod tests {
                 r#""repo_renames": [{"old_name": "pusi-os/pots-office", "new_name": "pusi-os/pots-office", "renamed_at": null}]"#,
             )
             .replace(
-                "\"name\": \"PhotoCraft\", \"repo\": \"pusi-os/pots-office\"",
-                "\"name\": \"PhotoCraft\", \"repo\": \"pusi-os/pots-office\"",
+                "\"name\": \"Pots Photos\", \"repo\": \"pusi-os/pots-office\"",
+                "\"name\": \"Pots Photos\", \"repo\": \"pusi-os/pots-office\"",
             )
             .replace("github.com/pusi-os/pots-office/releases", "github.com/pusi-os/pots-office/releases");
         let feed = Feed::parse(&moved).unwrap();
@@ -556,7 +556,7 @@ mod tests {
                                   {"old_name": "art/photocraft", "new_name": "pusi-os/pots-office", "renamed_at": null},
                                   {"old_name": "pusi-os/pots-office", "new_name": "storytold.evil.example/photocraft", "renamed_at": null}]"#,
             )
-            .replace("\"name\": \"PhotoCraft\", \"repo\": \"pusi-os/pots-office\"", "\"name\": \"PhotoCraft\", \"repo\": \"art/photocraft\"")
+            .replace("\"name\": \"Pots Photos\", \"repo\": \"pusi-os/pots-office\"", "\"name\": \"Pots Photos\", \"repo\": \"art/photocraft\"")
             .replace("github.com/pusi-os/pots-office/releases", "github.com/art/photocraft/releases");
         let feed = Feed::parse(&moved).unwrap();
         assert!(feed.repo_renames.is_empty(), "{:?}", feed.repo_renames);
@@ -606,17 +606,17 @@ mod tests {
         let with_notices = sample()
             .replace(
                 "\"announcements\": []",
-                r#""announcements": [{"title": "New: CADCraft 1.0", "body": "It's here.", "created_at": "2026-10-09T09:00:00Z"}]"#,
+                r#""announcements": [{"title": "New: Pots CAD 1.0", "body": "It's here.", "created_at": "2026-10-09T09:00:00Z"}]"#,
             )
             .replace(
                 "\"alerts\": []",
                 r#""alerts": [
-            {"title": "Security update", "body": "Update PdfCraft now.", "maybe_web_link": "https://getartcraft.com/security", "created_at": null},
+            {"title": "Security update", "body": "Update Pots Docs now.", "maybe_web_link": "https://getartcraft.com/security", "created_at": null},
             {"title": "Bad link", "body": "x", "maybe_web_link": "javascript:alert(1)"}]"#,
             )
             .replace(
                 "\"app_renames\": []",
-                r#""app_renames": [{"old_name": "PdfCraft", "old_name_lower": "pdfcraft", "new_name": "DocuCraft",
+                r#""app_renames": [{"old_name": "Pots Docs", "old_name_lower": "pdfcraft", "new_name": "DocuCraft",
             "new_name_lower": "docucraft", "description": "Same app, new name.", "renamed_at": "2026-10-09T08:00:00Z"}]"#,
             );
         let feed = Feed::parse(&with_notices).unwrap();
@@ -624,7 +624,7 @@ mod tests {
         assert_eq!(feed.alerts[0].link.as_deref(), Some("https://getartcraft.com/security"));
         assert_eq!(feed.alerts[1].link, None, "only web links are kept");
         let titles: Vec<&str> = feed.announcements.iter().map(|n| n.title.as_str()).collect();
-        assert_eq!(titles, ["New: CADCraft 1.0", "PdfCraft is now DocuCraft"]);
+        assert_eq!(titles, ["New: Pots CAD 1.0", "Pots Docs is now DocuCraft"]);
         // Ids are stable across parses, so dismissals stick.
         assert_eq!(Feed::parse(&with_notices).unwrap().alerts[0].id, feed.alerts[0].id);
     }

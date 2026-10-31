@@ -114,7 +114,7 @@ fn polish_ui_translates_labels_dates_and_messages() {
     snapshot(&mut h, "grid-pl-dark");
     // Product names stay in English.
     h.get_by_label("Launcher");
-    h.get_by_label("Craft App Suite");
+    h.get_by_label("Pots Office Suite");
     h.get_by_label("Edycja zdjęć");
     h.get_by_label("Zaktualizuj do 0.5.0");
     h.get_by_label_contains("Weryfikowanie sumy kontrolnej…");

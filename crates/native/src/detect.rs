@@ -110,7 +110,7 @@ fn exe_candidates(app: &CraftApp, location: Option<&Path>, program_files: &[Path
 }
 
 /// Version from `<app> --version` output. Binaries print the machine id (`photocraft 0.7.0`),
-/// the display name (`SoundCraft 0.5.0`), or a former id (`printcraft 0.2.1` for PdfCraft).
+/// the display name (`Pots Sound 0.5.0`), or a former id (`printcraft 0.2.1` for Pots Docs).
 #[cfg_attr(not(any(target_os = "linux", target_os = "freebsd")), allow(dead_code))]
 fn parse_cli_version(line: &str, app: &CraftApp) -> Option<version::Version> {
     let line = line.trim();
@@ -492,7 +492,7 @@ mod linux_tests {
             std::fs::set_permissions(&bin, std::fs::Permissions::from_mode(0o755)).unwrap();
             bin
         };
-        let sound = write("soundcraft", "#!/bin/sh\necho 'SoundCraft 0.5.0'\n");
+        let sound = write("soundcraft", "#!/bin/sh\necho 'Pots Sound 0.5.0'\n");
         assert_eq!(linux::binary_version(&sound, CraftApp::by_id("soundcraft").unwrap()).unwrap().to_string(), "0.5.0");
         let pdf = write("pdfcraft", "#!/bin/sh\necho 'printcraft 0.2.1'\n");
         assert_eq!(linux::binary_version(&pdf, CraftApp::by_id("pdfcraft").unwrap()).unwrap().to_string(), "0.2.1");
@@ -514,7 +514,7 @@ mod tests {
         assert_eq!(v("pdfcraft-0.3.0-rc.1-linux-x86_64.AppImage"), Some(Some("0.3.0-rc.1".into())));
         // Gear Lever's rename, and a plain rename by hand.
         assert_eq!(v("pdfcraft.appimage"), Some(None));
-        assert_eq!(v("PdfCraft.AppImage"), Some(None));
+        assert_eq!(v("Pots Docs.AppImage"), Some(None));
         for other in [
             "pdfcraft-0.3.0-linux-x86_64.AppImage.zsync",
             "pdfcraft-0.3.0-linux-x86_64.deb",
@@ -536,9 +536,9 @@ mod tests {
         let sound = CraftApp::by_id("soundcraft").unwrap();
         let pdf = CraftApp::by_id("pdfcraft").unwrap();
         assert_eq!(parse_cli_version("photocraft 0.7.0 (dev build)", photo).unwrap().to_string(), "0.7.0");
-        assert_eq!(parse_cli_version("SoundCraft 0.5.0", sound).unwrap().to_string(), "0.5.0");
+        assert_eq!(parse_cli_version("Pots Sound 0.5.0", sound).unwrap().to_string(), "0.5.0");
         assert_eq!(parse_cli_version("printcraft 0.2.1", pdf).unwrap().to_string(), "0.2.1");
-        assert_eq!(parse_cli_version("PdfCraft 0.6.0", pdf).unwrap().to_string(), "0.6.0");
+        assert_eq!(parse_cli_version("Pots Docs 0.6.0", pdf).unwrap().to_string(), "0.6.0");
         assert!(strip_cli_prefix("photocraft-cli 1.0.0", "photocraft").is_none());
     }
 
@@ -577,20 +577,20 @@ mod tests {
     #[test]
     fn pdfcraft_matches_its_former_printcraft_installer_name() {
         let pdf = CraftApp::by_id("pdfcraft").unwrap();
-        assert!(is_installer_entry(pdf, "PrintCraft", LEARNING_MACHINES), "a PrintCraft entry from {LEARNING_MACHINES} should be PdfCraft's");
+        assert!(is_installer_entry(pdf, "PrintCraft", LEARNING_MACHINES), "a PrintCraft entry from {LEARNING_MACHINES} should be Pots Docs's");
     }
 
     #[test]
     fn pdfcraft_still_matches_its_own_installer_name() {
         let pdf = CraftApp::by_id("pdfcraft").unwrap();
-        assert!(is_installer_entry(pdf, "PdfCraft", LEARNING_MACHINES));
+        assert!(is_installer_entry(pdf, "Pots Docs", LEARNING_MACHINES));
     }
 
     #[test]
     fn printcraft_entries_match_nothing_else() {
         let pdf = CraftApp::by_id("pdfcraft").unwrap();
         assert!(!is_installer_entry(pdf, "PrintCraft", "Some Other Publisher"));
-        assert!(!is_installer_entry(pdf, "PhotoCraft", LEARNING_MACHINES));
+        assert!(!is_installer_entry(pdf, "Pots Photos", LEARNING_MACHINES));
         for a in SUITE.iter().filter(|a| a.id != "pdfcraft") {
             assert!(!is_installer_entry(a, "PrintCraft", LEARNING_MACHINES), "PrintCraft matched {}", a.name);
         }
@@ -603,7 +603,7 @@ mod tests {
         let roots = roots();
         let mut want = vec![location.join("pdfcraft.exe"), location.join("printcraft.exe")];
         for root in &roots {
-            for dir in ["PdfCraft", "PrintCraft"] {
+            for dir in ["Pots Docs", "PrintCraft"] {
                 want.push(root.join(dir).join("pdfcraft.exe"));
                 want.push(root.join(dir).join("printcraft.exe"));
             }

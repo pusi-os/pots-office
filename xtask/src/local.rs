@@ -19,19 +19,19 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 /// Every Craft App: (id = folder name, display name). Keep in step with `catalog::SUITE`.
 const APPS: &[(&str, &str)] = &[
-    ("photocraft", "PhotoCraft"),
-    ("vectorcraft", "VectorCraft"),
-    ("filmcraft", "FilmCraft"),
+    ("photocraft", "Pots Photos"),
+    ("vectorcraft", "Pots Vector"),
+    ("filmcraft", "Pots Films"),
     ("lightcraft", "LightCraft"),
-    ("pdfcraft", "PdfCraft"),
+    ("pdfcraft", "Pots Docs"),
     ("effectcraft", "EffectCraft"),
-    ("designcraft", "DesignCraft"),
-    ("wordcraft", "WordCraft"),
-    ("deckcraft", "DeckCraft"),
-    ("gridcraft", "GridCraft"),
-    ("cadcraft", "CADCraft"),
-    ("soundcraft", "SoundCraft"),
-    ("figcraft", "FigCraft"),
+    ("designcraft", "Pots Design"),
+    ("wordcraft", "Pots Word"),
+    ("deckcraft", "Pots Deck"),
+    ("gridcraft", "Pots Tables"),
+    ("cadcraft", "Pots CAD"),
+    ("soundcraft", "Pots Sound"),
+    ("figcraft", "Pots Protoface"),
 ];
 
 const DEFAULT_PORT: u16 = 8787;

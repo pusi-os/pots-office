@@ -114,7 +114,7 @@ fn russian_ui_translates_labels_dates_and_messages() {
     snapshot(&mut h, "grid-ru-dark");
     // Product names stay in English.
     h.get_by_label("Launcher");
-    h.get_by_label("Craft App Suite");
+    h.get_by_label("Pots Office Suite");
     h.get_by_label("Редактирование изображений");
     h.get_by_label("Обновить до 0.5.0");
     h.get_by_label_contains("Проверка контрольной суммы…");

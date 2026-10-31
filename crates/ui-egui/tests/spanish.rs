@@ -114,7 +114,7 @@ fn spanish_ui_translates_labels_dates_and_messages() {
     snapshot(&mut h, "grid-es-dark");
     // Product names stay in English.
     h.get_by_label("Launcher");
-    h.get_by_label("Craft App Suite");
+    h.get_by_label("Pots Office Suite");
     h.get_by_label("Edición de imágenes");
     h.get_by_label("Actualizar a 0.5.0");
     h.get_by_label_contains("Verificando la suma de comprobación…");

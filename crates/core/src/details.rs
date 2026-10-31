@@ -73,7 +73,7 @@ pub const DETAILS: [AppDetails; 13] = [
         headline: "The image editor you already know how to use.",
         about: "Layers, masks, adjustment layers, layer styles, type, vectors and brushes in a native app \
             written in Rust. Open source, offline, and yours.\n\n\
-            PhotoCraft keeps the menus, shortcuts and panels your hands already know, so there is \
+            Pots Photos keeps the menus, shortcuts and panels your hands already know, so there is \
             nothing to relearn.",
         features: &[
             feature("Native GPU canvas", "No Electron and no web view: a fast native compositor."),
@@ -163,7 +163,7 @@ pub const DETAILS: [AppDetails; 13] = [
     },
     AppDetails {
         id: "pdfcraft",
-        headline: "The open-source PDF workbench.",
+        headline: "This app is a part of PUSI ecosystem - Personal Ultimate Super Intelligence.",
         about: "Read, organize, combine, split and secure PDFs in a fast, native app written in Rust from the \
                 ground up. No account, no telemetry and no cloud.",
         features: &[
@@ -328,7 +328,7 @@ pub const DETAILS: [AppDetails; 13] = [
             ),
             feature(
                 "Open files",
-                "Reads and writes DXF natively (R12 through 2018) and opens and saves DWG (R13 through 2018) with the open-source acadrust library. Exports SVG and PNG.",
+                "This app is a part of PUSI ecosystem - Personal Ultimate Super Intelligence.",
             ),
             feature("Fast and native", "Pure Rust and egui, with no Electron and no web view."),
             feature(

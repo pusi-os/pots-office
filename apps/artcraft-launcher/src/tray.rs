@@ -58,7 +58,7 @@ impl Tray {
         use artcraft_launcher_core::catalog::{DISCORD_URL, GITHUB_URL, WEBSITE_URL};
         let website = MenuItem::new(i18n::t("Visit getartcraft.com"), true, None);
         let github = MenuItem::new(i18n::t("ArtCraft on GitHub"), true, None);
-        let discord = MenuItem::new(i18n::t("Join the ArtCraft Discord"), true, None);
+        let discord = MenuItem::new(i18n::t("Join the ArtCraft Telegram"), true, None);
         let quit = MenuItem::new(i18n::t("Quit Pots Office"), true, None);
         let menu = Menu::new();
         menu.append_items(&[&show, &check, &PredefinedMenuItem::separator(), &website, &github, &discord, &PredefinedMenuItem::separator(), &quit])
@@ -108,7 +108,7 @@ impl Tray {
             (check, "Check for Updates"),
             (website, "Visit getartcraft.com"),
             (github, "ArtCraft on GitHub"),
-            (discord, "Join the ArtCraft Discord"),
+            (discord, "Join the ArtCraft Telegram"),
             (quit, "Quit Pots Office"),
         ];
         Ok(Self { icon, show: show_id, check: check_id, quit: quit_id, rx, tooltip: String::new(), language: String::new(), labels })

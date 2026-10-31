@@ -190,7 +190,7 @@ fn german_switches_persists_and_keeps_install_actions() {
         for label in ["Grid", "Table", "Settings", "Check for updates"] {
             let rect = web.get_by_label(artcraft_launcher_ui_egui::i18n::t(label)).rect();
             assert!(rect.left() >= 0.0 && rect.right() <= width, "{width}: {label} {rect:?}");
-            for label in ["Launcher", "Craft App Suite"] {
+            for label in ["Launcher", "Pots Office Suite"] {
                 if let Some(text) = web.query_by_label(label) {
                     assert!(!rect.intersects(text.rect()), "{width}: {label} overlaps {rect:?}");
                 }

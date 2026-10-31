@@ -17,10 +17,10 @@ vendor: Learning Machines LLC
 homepage: https://github.com/storytold/craft-launcher
 license: MIT OR Apache-2.0
 description: |-
-  Install, update and launch the Craft App Suite.
-  ArtCraft Launcher lists PhotoCraft, LightCraft, FilmCraft, DesignCraft,
-  VectorCraft, PdfCraft, EffectCraft, WordCraft, DeckCraft, GridCraft, CADCraft,
-  SoundCraft and FigCraft, installs the right build for this computer and keeps
+  Install, update and launch the Pots Office Suite.
+  Pots Office lists Pots Photos, LightCraft, Pots Films, Pots Design,
+  Pots Vector, Pots Docs, EffectCraft, Pots Word, Pots Deck, Pots Tables, Pots CAD,
+  Pots Sound and Pots Protoface, installs the right build for this computer and keeps
   them up to date from GitHub releases. It can live in the system tray.
 
 # The binary links only glibc and libgcc_s directly. Windowing (X11/Wayland, xkbcommon) and the

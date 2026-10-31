@@ -126,7 +126,7 @@ fn hungarian_ui_translates_labels_dates_and_messages() {
     snapshot(&mut h, "grid-hu-dark");
     // Product names stay in English.
     h.get_by_label("Launcher");
-    h.get_by_label("Craft App Suite");
+    h.get_by_label("Pots Office Suite");
     h.get_by_label("Képszerkesztés");
     h.get_by_label("Frissítés: 0.5.0");
     h.get_by_label_contains("Ellenőrzőösszeg ellenőrzése…");
@@ -152,7 +152,7 @@ fn check_settings_layout() {
         h.run_steps(8);
         let screen = egui::Rect::from_min_size(egui::Pos2::ZERO, egui::vec2(width, height));
         let done = h.get_by_label("Kész").rect();
-        let quit = h.get_by_label("Kilépés az ArtCraft Launcherből").rect();
+        let quit = h.get_by_label("Kilépés az Pots Officeből").rect();
         assert!(screen.contains_rect(done), "{width}x{height}: Done is clipped: {done:?}");
         assert!(screen.contains_rect(quit), "{width}x{height}: Quit is clipped: {quit:?}");
         assert!(!done.intersects(quit));
@@ -162,7 +162,7 @@ fn check_settings_layout() {
         h.run_steps(8);
         // The footer has the same services, and the cards behind the modal have Webhely and GitHub
         // links as one 14px line of text; keep only the settings body's buttons (34px) and icons (24px).
-        let discord = h.get_by_label("Csatlakozás a Discordhoz").rect();
+        let discord = h.get_by_label("Csatlakozás a Telegramhoz").rect();
         let theme = h.get_by_label("Rendszerbeállítás szerint").rect();
         assert!(screen.contains_rect(discord), "community links must be reachable by scrolling");
         assert!(theme.bottom() < done.top(), "appearance controls must scroll above the fixed actions");

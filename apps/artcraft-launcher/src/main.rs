@@ -1,4 +1,4 @@
-//! Pots Office: install, update and open the Craft App Suite.
+//! Pots Office: install, update and open the Pots Office Suite.
 //!
 //! The window can close to the tray (menu bar) and keep checking for updates, or quit entirely.
 
